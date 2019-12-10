@@ -9,7 +9,7 @@ You can execute the code by running:
 ```
 mvn compile exec:java
 ```
-You can run the test by:
+You can run the tests by:
 ```
 mvn test
 ```
