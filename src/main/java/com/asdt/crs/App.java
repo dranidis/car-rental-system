@@ -9,6 +9,7 @@ public final class App {
 
     /**
      * Runs two sample rentals.
+     *
      * @param args The arguments of the program.
      */
     public static void main(String[] args) {
@@ -19,5 +20,11 @@ public final class App {
 
         rentalId = cra.rentVehicle("small", "cust2");
         System.out.println(rentalId);
+
+        /* Outputs
+        cust1:Smart 1
+        null
+
+        */
     }
 }
