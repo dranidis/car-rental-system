@@ -10,6 +10,8 @@ public class RentVehiclePresenter implements RentVehicleOutputBoundary {
     public void present(RentVehicleResponse response) {
         rentVehicleViewModel = new RentVehicleViewModel();
         rentVehicleViewModel.rentalId = response.rentalId;
+        rentVehicleViewModel.rented = response.rented;
+        rentVehicleViewModel.customerFound = response.customerFound;
     }
 
 	public RentVehicleViewModel getViewModel() {

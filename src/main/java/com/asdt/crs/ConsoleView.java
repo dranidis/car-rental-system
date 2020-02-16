@@ -7,7 +7,14 @@ public class ConsoleView implements RentVehicleView{
 
     @Override
     public String genererateView(RentVehicleViewModel viewModel) {
-        return "Rental: " + viewModel.rentalId;
+        if (viewModel.customerFound)
+            if (viewModel.rented)
+                return "Car rented with rental id: " + viewModel.rentalId;
+            else
+                return "Category not available";
+        else
+            return "Customer not found";
+
     }
 
 }

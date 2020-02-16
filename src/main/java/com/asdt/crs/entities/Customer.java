@@ -3,9 +3,11 @@ package com.asdt.crs.entities;
 public class Customer {
     private String id;
     private Rental rental;
+    private String name;
 
-    public Customer(String string) {
-        id = string;
+    public Customer(String id, String name) {
+        this.id = id;
+        this.name = name;
     }
 
     public void setRental(Rental rental) {
@@ -15,5 +17,9 @@ public class Customer {
     public String getId() {
         return id;
     }
+
+	public String getName() {
+		return name;
+	}
 
 }

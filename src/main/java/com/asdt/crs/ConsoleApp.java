@@ -8,15 +8,7 @@ import com.asdt.crs.interactors.rentvehicle.RentVehicleRequestModel;
 /**
  * Car Rental System exercise!
  */
-public final class App {
-    private App() {
-    }
-
-    /**
-     * Runs two sample rentals.
-     *
-     * @param args The arguments of the program.
-     */
+public final class ConsoleApp {
     public static void main(String[] args) {
         RentVehicleController rentVehicleController = new RentVehicleController(
             new RentVehicleInteractor(new InMemoryPersistence()),
