@@ -1,4 +1,4 @@
-package com.asdt.crs;
+package com.asdt.crs.entities;
 
 public class Vehicle {
     private boolean rented;

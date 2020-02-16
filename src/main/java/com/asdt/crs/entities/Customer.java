@@ -1,8 +1,8 @@
-package com.asdt.crs;
+package com.asdt.crs.entities;
 
 public class Customer {
-    private Rental rental;
     private String id;
+    private Rental rental;
 
     public Customer(String string) {
         id = string;
