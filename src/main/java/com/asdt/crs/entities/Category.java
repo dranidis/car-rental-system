@@ -1,6 +1,6 @@
 package com.asdt.crs.entities;
 
-public class Category {
+public class Category implements Cloneable {
 
     private String id;
 
@@ -12,4 +12,7 @@ public class Category {
         return id;
     }
 
+    public Object clone() throws CloneNotSupportedException {
+        return (Category) super.clone();
+    }
 }

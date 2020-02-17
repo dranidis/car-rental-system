@@ -5,9 +5,12 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
+import java.util.Optional;
+
 import com.asdt.crs.InMemoryPersistence;
 import com.asdt.crs.entities.Category;
 import com.asdt.crs.entities.Customer;
+import com.asdt.crs.entities.Rental;
 import com.asdt.crs.entities.Vehicle;
 import com.asdt.crs.interactors.rentvehicle.RentVehicleInteractor;
 import com.asdt.crs.interactors.rentvehicle.RentVehicleRequestModel;
@@ -18,7 +21,7 @@ import org.junit.Test;
 /**
  * Unit test for simple App.
  */
-public class ConsoleAppTest {
+public class RentVehicleTest {
     private InMemoryPersistence mem;
     private RentVehiclePresenter presenter;
 
@@ -46,7 +49,14 @@ public class ConsoleAppTest {
         RentVehicleViewModel viewModel = presenter.getViewModel();
         assertTrue(viewModel.customerFound);
         assertTrue(viewModel.rented);
-        assertEquals(customerId + ":" + vehicleId, viewModel.rentalId);
+        String rentalId = customerId + ":" + vehicleId;
+        assertEquals(rentalId, viewModel.rentalId);
+
+        Optional<Rental> rentalMem = mem.getRental(rentalId);
+        assertTrue(rentalMem.isPresent());
+        rentalMem.ifPresent(rental -> {
+            assertTrue(rental.getVehicle().isRented());
+        });
     }
 
     @Test

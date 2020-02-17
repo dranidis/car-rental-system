@@ -17,7 +17,28 @@ public class InMemoryPersistence implements Gateway {
     private List<Vehicle> vehicles = new ArrayList<>();
 
     public void addCustomer(Customer customer) {
-        customers.put(customer.getId(), customer);
+        try {
+            customers.put(customer.getId(), (Customer) customer.clone());
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void addVehicle(Vehicle vehicle) {
+        try {
+            vehicles.add((Vehicle) vehicle.clone());
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void addRental(Rental rental) {
+        try {
+            rentals.put(rental.getId(), (Rental) rental.clone());
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -26,7 +47,7 @@ public class InMemoryPersistence implements Gateway {
     }
 
     @Override
-    public Optional<Vehicle> getAvailableVehicleByCategoryId(String categoryId) {
+    public Optional<Vehicle> getFirstAvailableVehicleWithCategoryId(String categoryId) {
         return vehicles
             .stream()
             .filter(v -> !v.isRented())
@@ -34,14 +55,27 @@ public class InMemoryPersistence implements Gateway {
             .findFirst();
     }
 
+	public Optional<Vehicle> getVehicle(String vehicleId) {
+        return vehicles
+            .stream()
+            .filter(v -> v.getId().equals(vehicleId))
+            .findFirst();
+	}
+
+	public Optional<Rental> getRental(String rentalId) {
+		return Optional.ofNullable(rentals.get(rentalId));
+	}
+
     @Override
-    public void saveRental(Rental rental) {
-        rentals.put(rental.getId(), rental);
-        System.out.println("Saved rental: " + rental.toString());
+    public void updateVehicle(String vehicleId, Vehicle newVehicle) throws VehicleNotFound {
+        Optional<Vehicle> vehicle = getVehicle(vehicleId);
+        if (vehicle.isPresent()) {
+            vehicles.remove(vehicle.get());
+            vehicles.add(newVehicle);
+        } else {
+            throw new VehicleNotFound(vehicleId);
+        }
     }
 
-	public void addVehicle(Vehicle v1) {
-        vehicles.add(v1);
-	}
 
 }

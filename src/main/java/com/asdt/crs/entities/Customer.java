@@ -1,8 +1,7 @@
 package com.asdt.crs.entities;
 
-public class Customer {
+public class Customer implements Cloneable {
     private String id;
-    private Rental rental;
     private String name;
 
     public Customer(String id, String name) {
@@ -10,16 +9,15 @@ public class Customer {
         this.name = name;
     }
 
-    public void setRental(Rental rental) {
-        this.rental = rental;
-    }
-
     public String getId() {
         return id;
     }
 
-	public String getName() {
-		return name;
-	}
+    public String getName() {
+        return name;
+    }
 
+    public Object clone() throws CloneNotSupportedException {
+        return (Customer) super.clone();
+    }
 }

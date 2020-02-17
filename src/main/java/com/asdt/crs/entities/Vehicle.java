@@ -1,6 +1,6 @@
 package com.asdt.crs.entities;
 
-public class Vehicle {
+public class Vehicle implements Cloneable {
     private boolean rented;
     private String id;
     private Category category;
@@ -26,4 +26,10 @@ public class Vehicle {
         return category;
     }
 
+    public Object clone() throws CloneNotSupportedException {
+        Vehicle vehicle = new Vehicle(this.id, this.category);
+        vehicle.rented = this.rented;
+        vehicle.category = (Category) category.clone();
+        return vehicle;
+    }
 }
