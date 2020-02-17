@@ -9,9 +9,9 @@ import java.util.Optional;
 import com.asdt.crs.entities.Customer;
 import com.asdt.crs.entities.Rental;
 import com.asdt.crs.entities.Vehicle;
-import com.asdt.crs.gateways.Gateway;
-import com.asdt.crs.gateways.RentalNotFound;
-import com.asdt.crs.gateways.VehicleNotFound;
+import com.asdt.crs.usecases.entitygateways.Gateway;
+import com.asdt.crs.usecases.entitygateways.RentalNotFound;
+import com.asdt.crs.usecases.entitygateways.VehicleNotFound;
 
 public class InMemoryPersistence implements Gateway {
     private Map<String, Customer> customers = new HashMap<>();

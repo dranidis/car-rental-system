@@ -1,4 +1,4 @@
-package com.asdt.crs.gateways;
+package com.asdt.crs.usecases.entitygateways;
 
 import java.util.Optional;
 

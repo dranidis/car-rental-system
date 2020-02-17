@@ -4,7 +4,7 @@ import com.asdt.crs.usecases.rentvehicle.RentVehicleRequest;
 import com.asdt.crs.usecases.rentvehicle.RentVehicleUseCase;
 
 public class RentVehicleController {
-    private RentVehicleUseCase rentVehicleInteractor;
+    private RentVehicleUseCase usecase;
     private RentVehiclePresenter presenter;
     private RentVehicleView view;
 
@@ -12,14 +12,14 @@ public class RentVehicleController {
         RentVehicleUseCase rentVehicleInteractor,
         RentVehiclePresenter presenter,
         RentVehicleView view) {
-            this.rentVehicleInteractor = rentVehicleInteractor;
+            this.usecase = rentVehicleInteractor;
             this.presenter = presenter;
             this.view = view;
 
     }
 
     public String handle(RentVehicleRequest request) {
-        rentVehicleInteractor.rentVehicle(request, presenter);
+        usecase.rentVehicle(request, presenter);
         return view.genererateView(presenter.getViewModel());
     }
 }
