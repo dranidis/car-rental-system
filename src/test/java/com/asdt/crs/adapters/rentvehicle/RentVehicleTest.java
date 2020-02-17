@@ -12,8 +12,8 @@ import com.asdt.crs.entities.Category;
 import com.asdt.crs.entities.Customer;
 import com.asdt.crs.entities.Rental;
 import com.asdt.crs.entities.Vehicle;
-import com.asdt.crs.interactors.rentvehicle.RentVehicleInteractor;
-import com.asdt.crs.interactors.rentvehicle.RentVehicleRequestModel;
+import com.asdt.crs.usecases.rentvehicle.RentVehicleUseCase;
+import com.asdt.crs.usecases.rentvehicle.RentVehicleRequest;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -40,11 +40,11 @@ public class RentVehicleTest {
         mem.addCustomer(c1);
         mem.addVehicle(v1);
 
-        RentVehicleRequestModel request = new RentVehicleRequestModel();
+        RentVehicleRequest request = new RentVehicleRequest();
         request.categoryId = "small";
         request.customerId = "dim";
 
-        RentVehicleInteractor interactor = new RentVehicleInteractor(mem);
+        RentVehicleUseCase interactor = new RentVehicleUseCase(mem);
         interactor.rentVehicle(request, presenter);
         RentVehicleViewModel viewModel = presenter.getViewModel();
         assertTrue(viewModel.customerFound);
@@ -64,12 +64,12 @@ public class RentVehicleTest {
         Customer c1 = new Customer("dim", "Dimitris");
         mem.addCustomer(c1);
 
-        RentVehicleRequestModel request = new RentVehicleRequestModel();
+        RentVehicleRequest request = new RentVehicleRequest();
 
         request.categoryId = "lux";
         request.customerId = "dim";
 
-        RentVehicleInteractor interactor = new RentVehicleInteractor(mem);
+        RentVehicleUseCase interactor = new RentVehicleUseCase(mem);
         interactor.rentVehicle(request, presenter);
         RentVehicleViewModel viewModel = presenter.getViewModel();
         assertTrue(viewModel.customerFound);
@@ -86,12 +86,12 @@ public class RentVehicleTest {
         v1.setRented(true);
         mem.addVehicle(v1);
 
-        RentVehicleRequestModel request = new RentVehicleRequestModel();
+        RentVehicleRequest request = new RentVehicleRequest();
 
         request.categoryId = "small";
         request.customerId = "dim";
 
-        RentVehicleInteractor interactor = new RentVehicleInteractor(mem);
+        RentVehicleUseCase interactor = new RentVehicleUseCase(mem);
         interactor.rentVehicle(request, presenter);
         RentVehicleViewModel viewModel = presenter.getViewModel();
         assertTrue(viewModel.customerFound);
@@ -104,12 +104,12 @@ public class RentVehicleTest {
         Vehicle v1 = new Vehicle("Mercedes", new Category("small"));
         mem.addVehicle(v1);
 
-        RentVehicleRequestModel request = new RentVehicleRequestModel();
+        RentVehicleRequest request = new RentVehicleRequest();
 
         request.categoryId = "lux";
         request.customerId = "dim";
 
-        RentVehicleInteractor interactor = new RentVehicleInteractor(mem);
+        RentVehicleUseCase interactor = new RentVehicleUseCase(mem);
         interactor.rentVehicle(request, presenter);
         RentVehicleViewModel viewModel = presenter.getViewModel();
         assertFalse(viewModel.customerFound);

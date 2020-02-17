@@ -1,22 +1,22 @@
 package com.asdt.crs;
 
-import org.junit.Before;
-import org.junit.Test;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import com.asdt.crs.adapters.rentvehicle.RentVehicleController;
 import com.asdt.crs.adapters.rentvehicle.RentVehiclePresenter;
 import com.asdt.crs.entities.Category;
 import com.asdt.crs.entities.Customer;
 import com.asdt.crs.entities.Vehicle;
-import com.asdt.crs.interactors.rentvehicle.RentVehicleInteractor;
-import com.asdt.crs.interactors.rentvehicle.RentVehicleRequestModel;
+import com.asdt.crs.usecases.rentvehicle.RentVehicleRequest;
+import com.asdt.crs.usecases.rentvehicle.RentVehicleUseCase;
+
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * Unit test for simple App.
  */
-public class ConsoleAppTest {
+public class ConsoleAppRentVehicleTest {
     private InMemoryPersistence mem;
     private RentVehicleController rentVehicleController;
 
@@ -24,9 +24,9 @@ public class ConsoleAppTest {
     public void setup() {
         mem = new InMemoryPersistence();
         rentVehicleController = new RentVehicleController(
-            new RentVehicleInteractor(mem),
+            new RentVehicleUseCase(mem),
             new RentVehiclePresenter(),
-            new ConsoleView());
+            new RentVehicleConsoleView());
 
     }
 
@@ -37,7 +37,7 @@ public class ConsoleAppTest {
         mem.addCustomer(c1);
         mem.addVehicle(v1);
 
-        RentVehicleRequestModel request = new RentVehicleRequestModel();
+        RentVehicleRequest request = new RentVehicleRequest();
 
         request.categoryId = "small";
         request.customerId = "dim";
@@ -50,7 +50,7 @@ public class ConsoleAppTest {
         Customer c1 = new Customer("dim", "Dimitris");
         mem.addCustomer(c1);
 
-        RentVehicleRequestModel request = new RentVehicleRequestModel();
+        RentVehicleRequest request = new RentVehicleRequest();
 
         request.categoryId = "lux";
         request.customerId = "dim";
@@ -63,7 +63,7 @@ public class ConsoleAppTest {
         Vehicle v1 = new Vehicle("Mercedes", new Category("small"));
         mem.addVehicle(v1);
 
-        RentVehicleRequestModel request = new RentVehicleRequestModel();
+        RentVehicleRequest request = new RentVehicleRequest();
 
         request.categoryId = "lux";
         request.customerId = "dim";

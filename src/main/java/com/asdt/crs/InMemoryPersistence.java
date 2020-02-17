@@ -9,7 +9,9 @@ import java.util.Optional;
 import com.asdt.crs.entities.Customer;
 import com.asdt.crs.entities.Rental;
 import com.asdt.crs.entities.Vehicle;
-import com.asdt.crs.interactors.rentvehicle.Gateway;
+import com.asdt.crs.gateways.Gateway;
+import com.asdt.crs.gateways.RentalNotFound;
+import com.asdt.crs.gateways.VehicleNotFound;
 
 public class InMemoryPersistence implements Gateway {
     private Map<String, Customer> customers = new HashMap<>();
@@ -48,23 +50,18 @@ public class InMemoryPersistence implements Gateway {
 
     @Override
     public Optional<Vehicle> getFirstAvailableVehicleWithCategoryId(String categoryId) {
-        return vehicles
-            .stream()
-            .filter(v -> !v.isRented())
-            .filter(v -> v.getCategory().getId().equals(categoryId))
-            .findFirst();
+        return vehicles.stream().filter(v -> !v.isRented()).filter(v -> v.getCategory().getId().equals(categoryId))
+                .findFirst();
     }
 
-	public Optional<Vehicle> getVehicle(String vehicleId) {
-        return vehicles
-            .stream()
-            .filter(v -> v.getId().equals(vehicleId))
-            .findFirst();
-	}
+    public Optional<Vehicle> getVehicle(String vehicleId) {
+        return vehicles.stream().filter(v -> v.getId().equals(vehicleId)).findFirst();
+    }
 
-	public Optional<Rental> getRental(String rentalId) {
-		return Optional.ofNullable(rentals.get(rentalId));
-	}
+    @Override
+    public Optional<Rental> getRental(String rentalId) {
+        return Optional.ofNullable(rentals.get(rentalId));
+    }
 
     @Override
     public void updateVehicle(String vehicleId, Vehicle newVehicle) throws VehicleNotFound {
@@ -77,5 +74,14 @@ public class InMemoryPersistence implements Gateway {
         }
     }
 
+    @Override
+    public void updateRentalReturned(String rentalId) throws RentalNotFound {
+        Optional<Rental> rentalOptional = getRental(rentalId);
+        if (rentalOptional.isPresent()) {
+            rentalOptional.get().setVehicleReturned(true);
+        } else {
+            throw new RentalNotFound(rentalId);
+        }
+    }
 
 }

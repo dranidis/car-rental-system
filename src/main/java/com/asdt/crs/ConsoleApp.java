@@ -2,8 +2,8 @@ package com.asdt.crs;
 
 import com.asdt.crs.adapters.rentvehicle.RentVehicleController;
 import com.asdt.crs.adapters.rentvehicle.RentVehiclePresenter;
-import com.asdt.crs.interactors.rentvehicle.RentVehicleInteractor;
-import com.asdt.crs.interactors.rentvehicle.RentVehicleRequestModel;
+import com.asdt.crs.usecases.rentvehicle.RentVehicleUseCase;
+import com.asdt.crs.usecases.rentvehicle.RentVehicleRequest;
 
 /**
  * Car Rental System exercise!
@@ -11,11 +11,11 @@ import com.asdt.crs.interactors.rentvehicle.RentVehicleRequestModel;
 public final class ConsoleApp {
     public static void main(String[] args) {
         RentVehicleController rentVehicleController = new RentVehicleController(
-            new RentVehicleInteractor(new InMemoryPersistence()),
+            new RentVehicleUseCase(new InMemoryPersistence()),
             new RentVehiclePresenter(),
-            new ConsoleView());
+            new RentVehicleConsoleView());
 
-        RentVehicleRequestModel request = new RentVehicleRequestModel();
+        RentVehicleRequest request = new RentVehicleRequest();
         request.categoryId = "small";
         request.customerId = "dim";
         String viewString = rentVehicleController.handle(request);

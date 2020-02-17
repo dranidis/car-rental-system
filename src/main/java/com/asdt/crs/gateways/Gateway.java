@@ -1,8 +1,7 @@
-package com.asdt.crs.interactors.rentvehicle;
+package com.asdt.crs.gateways;
 
 import java.util.Optional;
 
-import com.asdt.crs.VehicleNotFound;
 import com.asdt.crs.entities.Customer;
 import com.asdt.crs.entities.Rental;
 import com.asdt.crs.entities.Vehicle;
@@ -16,4 +15,8 @@ public interface Gateway {
 	void addRental(Rental rental);
 
 	void updateVehicle(String id, Vehicle available) throws VehicleNotFound;
+
+	Optional<Rental> getRental(String rentalId);
+
+	void updateRentalReturned(String id) throws RentalNotFound;
 }

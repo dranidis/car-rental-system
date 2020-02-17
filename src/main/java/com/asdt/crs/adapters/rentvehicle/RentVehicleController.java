@@ -1,15 +1,15 @@
 package com.asdt.crs.adapters.rentvehicle;
 
-import com.asdt.crs.interactors.rentvehicle.RentVehicleInputBoundary;
-import com.asdt.crs.interactors.rentvehicle.RentVehicleRequestModel;
+import com.asdt.crs.usecases.rentvehicle.RentVehicleRequest;
+import com.asdt.crs.usecases.rentvehicle.RentVehicleUseCase;
 
 public class RentVehicleController {
-    private RentVehicleInputBoundary rentVehicleInteractor;
+    private RentVehicleUseCase rentVehicleInteractor;
     private RentVehiclePresenter presenter;
     private RentVehicleView view;
 
     public RentVehicleController(
-        RentVehicleInputBoundary rentVehicleInteractor,
+        RentVehicleUseCase rentVehicleInteractor,
         RentVehiclePresenter presenter,
         RentVehicleView view) {
             this.rentVehicleInteractor = rentVehicleInteractor;
@@ -18,7 +18,7 @@ public class RentVehicleController {
 
     }
 
-    public String handle(RentVehicleRequestModel request) {
+    public String handle(RentVehicleRequest request) {
         rentVehicleInteractor.rentVehicle(request, presenter);
         return view.genererateView(presenter.getViewModel());
     }

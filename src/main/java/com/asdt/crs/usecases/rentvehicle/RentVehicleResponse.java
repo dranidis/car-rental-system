@@ -1,4 +1,4 @@
-package com.asdt.crs.interactors.rentvehicle;
+package com.asdt.crs.usecases.rentvehicle;
 
 public class RentVehicleResponse {
 

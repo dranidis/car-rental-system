@@ -1,9 +1,9 @@
 package com.asdt.crs.adapters.rentvehicle;
 
-import com.asdt.crs.interactors.rentvehicle.RentVehicleOutputBoundary;
-import com.asdt.crs.interactors.rentvehicle.RentVehicleResponse;
+import com.asdt.crs.usecases.rentvehicle.RentVehicleUseCaseInterface;
+import com.asdt.crs.usecases.rentvehicle.RentVehicleResponse;
 
-public class RentVehiclePresenter implements RentVehicleOutputBoundary {
+public class RentVehiclePresenter implements RentVehicleUseCaseInterface {
     private RentVehicleViewModel rentVehicleViewModel;
 
     @Override

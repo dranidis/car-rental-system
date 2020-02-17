@@ -1,4 +1,4 @@
-package com.asdt.crs;
+package com.asdt.crs.gateways;
 
 public class VehicleNotFound extends Exception {
 
