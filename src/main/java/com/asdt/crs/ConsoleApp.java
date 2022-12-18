@@ -9,6 +9,13 @@ import com.asdt.crs.usecases.rentvehicle.RentVehicleRequest;
  * Car Rental System exercise!
  */
 public final class ConsoleApp {
+    private ConsoleApp() {
+    }
+
+    /**
+     * Runs a simple sample scenario.
+     * @param args
+     */
     public static void main(String[] args) {
         RentVehicleController rentVehicleController = new RentVehicleController(
             new RentVehicleUseCase(new InMemoryPersistence()),

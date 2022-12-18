@@ -71,5 +71,4 @@ public class ConsoleAppRentVehicleTest {
         assertEquals("Customer not found", viewString);
     }
 
-
 }

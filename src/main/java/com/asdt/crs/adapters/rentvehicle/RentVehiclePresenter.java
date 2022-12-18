@@ -14,8 +14,8 @@ public class RentVehiclePresenter implements RentVehicleUseCaseInterface {
         rentVehicleViewModel.customerFound = response.customerFound;
     }
 
-	public RentVehicleViewModel getViewModel() {
+    public RentVehicleViewModel getViewModel() {
         return rentVehicleViewModel;
-	}
+    }
 
 }
