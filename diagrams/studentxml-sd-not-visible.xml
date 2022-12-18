@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<uml>
+  <object class="UMLProject" id="project">
+    <object class="SDModel" framex="0,0,1712,1945" iconified="false" id="" internalid="sdmodel0" name="SD: sd main" selected="true">
+      <object class="ActorInstanceGR" id="" internalid="actorinstancegr0" uid="Desktop Application User" x="40">
+        <object class="ActorInstance" id="actor" internalid="actorinstance0" name="user">
+          <object class="Actor" id="actor" internalid="actor0" name=""/>
+        </object>
+      </object>
+      <object class="SDObjectGR" id="" internalid="sdobjectgr0" uid="Desktop Application User" x="124">
+        <object class="SDObject" designclass="designclass3" id="sdobject" internalid="sdobject0" name="">
+          <object class="DesignClass" id="designclass" internalid="designclass3" name="ConsoleApp" stereotype="">
+            <object class="GenericClass" id="generic" internalid="genericclass1" name="ConsoleApp"/>
+            <object id="attributes"/>
+            <object id="methods"/>
+          </object>
+        </object>
+      </object>
+      <object class="SDObjectGR" id="" internalid="sdobjectgr1" uid="Desktop Application User" x="1035">
+        <object class="SDObject" designclass="designclass6" id="sdobject" internalid="sdobject1" name="gateway">
+          <object class="DesignClass" id="designclass" internalid="designclass6" name="InMemoryPersistence" stereotype="">
+            <object class="GenericClass" id="generic" internalid="genericclass2" name="InMemoryPersistence"/>
+            <object id="attributes"/>
+            <object id="methods"/>
+          </object>
+        </object>
+      </object>
+      <object class="CallMessageGR" from="actorinstancegr0" id="" internalid="callmessagegr0" to="sdobjectgr0" y="75">
+        <object class="CallMessage" from="actorinstance0" id="message" internalid="callmessage0" iterative="false" name="main" returnType="void" returns="" to="sdobject0">
+          <object class="GenericOperation" id="operation" name="main"/>
+          <object id="parameters"/>
+        </object>
+      </object>
+      <object class="ReturnMessageGR" from="sdobjectgr0" id="" internalid="returnmessagegr0" to="actorinstancegr0" y="1201">
+        <object class="ReturnMessage" from="sdobject0" id="message" internalid="returnmessage0" name="" to="actorinstance0"/>
+      </object>
+      <object class="CreateMessageGR" from="sdobjectgr0" id="" internalid="createmessagegr0" to="sdobjectgr1" y="89">
+        <object class="CreateMessage" from="sdobject0" id="message" internalid="createmessage0" to="sdobject1">
+          <object id="parameters"/>
+        </object>
+      </object>
+      <object class="ReturnMessageGR" from="sdobjectgr1" id="" internalid="returnmessagegr1" to="sdobjectgr0" y="115">
+        <object class="ReturnMessage" from="sdobject1" id="message" internalid="returnmessage1" name="" to="sdobject0"/>
+      </object>
+      <object class="SDObjectGR" id="" internalid="sdobjectgr2" uid="Desktop Application User" x="717">
+        <object class="SDObject" designclass="designclass9" id="sdobject" internalid="sdobject2" name="presenter">
+          <object class="DesignClass" id="designclass" internalid="designclass9" name="RentVehiclePresenter" stereotype="">
+            <object class="GenericClass" id="generic" internalid="genericclass3" name="RentVehiclePresenter"/>
+            <object id="attributes"/>
+            <object id="methods"/>
+          </object>
+        </object>
+      </object>
+      <object class="CreateMessageGR" from="sdobjectgr0" id="" internalid="createmessagegr1" to="sdobjectgr2" y="192">
+        <object class="CreateMessage" from="sdobject0" id="message" internalid="createmessage1" to="sdobject2">
+          <object id="parameters"/>
+        </object>
+      </object>
+      <object class="ReturnMessageGR" from="sdobjectgr2" id="" internalid="returnmessagegr2" to="sdobjectgr0" y="223">
+        <object class="ReturnMessage" from="sdobject2" id="message" internalid="returnmessage2" name="" to="sdobject0"/>
+      </object>
+      <object class="SDObjectGR" id="" internalid="sdobjectgr3" uid="Desktop Application User" x="777">
+        <object class="SDObject" designclass="designclass11" id="sdobject" internalid="sdobject3" name="usecase">
+          <object class="DesignClass" id="designclass" internalid="designclass11" name="RentVehicleUseCase" stereotype="">
+            <object class="GenericClass" id="generic" internalid="genericclass4" name="RentVehicleUseCase"/>
+            <object id="attributes"/>
+            <object id="methods"/>
+          </object>
+        </object>
+      </object>
+      <object class="CreateMessageGR" from="sdobjectgr0" id="" internalid="createmessagegr2" to="sdobjectgr3" y="134">
+        <object class="CreateMessage" from="sdobject0" id="message" internalid="createmessage2" to="sdobject3">
+          <object id="parameters">
+            <object class="MethodParameter" id="" internalid="methodparameter0" name="gateway" type="InMemoryPersistence"/>
+          </object>
+        </object>
+      </object>
+      <object class="ReturnMessageGR" from="sdobjectgr3" id="" internalid="returnmessagegr3" to="sdobjectgr0" y="162">
+        <object class="ReturnMessage" from="sdobject3" id="message" internalid="returnmessage3" name="" to="sdobject0"/>
+      </object>
+      <object class="SDObjectGR" id="" internalid="sdobjectgr4" uid="Desktop Application User" x="842">
+        <object class="SDObject" designclass="designclass15" id="sdobject" internalid="sdobject4" name="view">
+          <object class="DesignClass" id="designclass" internalid="designclass15" name="RentVehicleConsoleView" stereotype="">
+            <object class="GenericClass" id="generic" internalid="genericclass5" name="RentVehicleConsoleView"/>
+            <object id="attributes"/>
+            <object id="methods"/>
+          </object>
+        </object>
+      </object>
+      <object class="CreateMessageGR" from="sdobjectgr0" id="" internalid="createmessagegr3" to="sdobjectgr4" y="240">
+        <object class="CreateMessage" from="sdobject0" id="message" internalid="createmessage3" to="sdobject4">
+          <object id="parameters"/>
+        </object>
+      </object>
+      <object class="ReturnMessageGR" from="sdobjectgr4" id="" internalid="returnmessagegr4" to="sdobjectgr0" y="264">
+        <object class="ReturnMessage" from="sdobject4" id="message" internalid="returnmessage4" name="" to="sdobject0"/>
+      </object>
+      <object class="SDObjectGR" id="" internalid="sdobjectgr5" uid="Desktop Application User" x="371">
+        <object class="SDObject" designclass="designclass1" id="sdobject" internalid="sdobject5" name="">
+          <object class="DesignClass" id="designclass" internalid="designclass1" name="RentVehicleController" stereotype="">
+            <object class="GenericClass" id="generic" internalid="genericclass0" name="RentVehicleController"/>
+            <object id="attributes"/>
+            <object id="methods"/>
+          </object>
+        </object>
+      </object>
+      <object class="CreateMessageGR" from="sdobjectgr0" id="" internalid="createmessagegr4" to="sdobjectgr5" y="298">
+        <object class="CreateMessage" from="sdobject0" id="message" internalid="createmessage4" to="sdobject5">
+          <object id="parameters">
+            <object class="MethodParameter" id="" internalid="methodparameter2" name="usecase" type=""/>
+            <object class="MethodParameter" id="" internalid="methodparameter3" name="presenter" type=""/>
+            <object class="MethodParameter" id="" internalid="methodparameter4" name="view" type=""/>
+          </object>
+        </object>
+      </object>
+      <object class="ReturnMessageGR" from="sdobjectgr5" id="" internalid="returnmessagegr5" to="sdobjectgr0" y="321">
+        <object class="ReturnMessage" from="sdobject5" id="message" internalid="returnmessage5" name="" to="sdobject0"/>
+      </object>
+      <object class="SDObjectGR" id="" internalid="sdobjectgr6" uid="Desktop Application User" x="492">
+        <object class="SDObject" designclass="designclass20" id="sdobject" internalid="sdobject6" name="request">
+          <object class="DesignClass" id="designclass" internalid="designclass20" name="RentVehicleRequest" stereotype="">
+            <object class="GenericClass" id="generic" internalid="genericclass6" name="RentVehicleRequest"/>
+            <object id="attributes"/>
+            <object id="methods"/>
+          </object>
+        </object>
+      </object>
+      <object class="CreateMessageGR" from="sdobjectgr0" id="" internalid="createmessagegr5" to="sdobjectgr6" y="380">
+        <object class="CreateMessage" from="sdobject0" id="message" internalid="createmessage5" to="sdobject6">
+          <object id="parameters"/>
+        </object>
+      </object>
+      <object class="ReturnMessageGR" from="sdobjectgr6" id="" internalid="returnmessagegr6" to="sdobjectgr0" y="438">
+        <object class="ReturnMessage" from="sdobject6" id="message" internalid="returnmessage6" name="" to="sdobject0"/>
+      </object>
+      <object class="CallMessageGR" from="sdobjectgr0" id="" internalid="callmessagegr1" to="sdobjectgr6" y="423">
+        <object class="CallMessage" from="sdobject0" id="message" internalid="callmessage1" iterative="false" name="set" returnType="void" returns="" to="sdobject6">
+          <object class="GenericOperation" id="operation" name="set"/>
+          <object id="parameters">
+            <object class="MethodParameter" id="" internalid="methodparameter8" name="catId" type=""/>
+            <object class="MethodParameter" id="" internalid="methodparameter9" name="customerId" type=""/>
+          </object>
+        </object>
+      </object>
+      <object class="ReturnMessageGR" from="sdobjectgr6" id="" internalid="returnmessagegr7" to="sdobjectgr0" y="412">
+        <object class="ReturnMessage" from="sdobject6" id="message" internalid="returnmessage7" name="" to="sdobject0"/>
+      </object>
+      <object class="CallMessageGR" from="sdobjectgr0" id="" internalid="callmessagegr2" to="sdobjectgr5" y="468">
+        <object class="CallMessage" from="sdobject0" id="message" internalid="callmessage2" iterative="false" name="handle" returnType="void" returns="" to="sdobject5">
+          <object class="GenericOperation" id="operation" name="handle"/>
+          <object id="parameters">
+            <object class="MethodParameter" id="" internalid="methodparameter12" name="request" type=""/>
+          </object>
+        </object>
+      </object>
+      <object class="ReturnMessageGR" from="sdobjectgr5" id="" internalid="returnmessagegr8" to="sdobjectgr0" y="1181">
+        <object class="ReturnMessage" from="sdobject5" id="message" internalid="returnmessage8" name="" to="sdobject0"/>
+      </object>
+      <object class="CallMessageGR" from="sdobjectgr5" id="" internalid="callmessagegr3" to="sdobjectgr3" y="496">
+        <object class="CallMessage" from="sdobject5" id="message" internalid="callmessage3" iterative="false" name="rentVehicle" returnType="void" returns="" to="sdobject3">
+          <object class="GenericOperation" id="operation" name="rentVehicle"/>
+          <object id="parameters">
+            <object class="MethodParameter" id="" internalid="methodparameter18" name="request" type=""/>
+            <object class="MethodParameter" id="" internalid="methodparameter19" name="presenter" type=""/>
+          </object>
+        </object>
+      </object>
+      <object class="ReturnMessageGR" from="sdobjectgr3" id="" internalid="returnmessagegr9" to="sdobjectgr5" y="987">
+        <object class="ReturnMessage" from="sdobject3" id="message" internalid="returnmessage9" name="" to="sdobject5"/>
+      </object>
+      <object class="CallMessageGR" from="sdobjectgr5" id="" internalid="callmessagegr4" to="sdobjectgr2" y="1130">
+        <object class="CallMessage" from="sdobject5" id="message" internalid="callmessage4" iterative="false" name="getViewModel" returnType="void" returns="viewModel" to="sdobject2">
+          <object class="GenericOperation" id="operation" name="getViewModel"/>
+          <object id="parameters"/>
+        </object>
+      </object>
+      <object class="ReturnMessageGR" from="sdobjectgr2" id="" internalid="returnmessagegr10" to="sdobjectgr5" y="1159">
+        <object class="ReturnMessage" from="sdobject2" id="message" internalid="returnmessage10" name="" to="sdobject5"/>
+      </object>
+      <object class="CallMessageGR" from="sdobjectgr5" id="" internalid="callmessagegr5" to="sdobjectgr4" y="1012">
+        <object class="CallMessage" from="sdobject5" id="message" internalid="callmessage5" iterative="false" name="generateView" returnType="void" returns="" to="sdobject4">
+          <object class="GenericOperation" id="operation" name="generateView"/>
+          <object id="parameters">
+            <object class="MethodParameter" id="" internalid="methodparameter22" name="viewModel" type=""/>
+          </object>
+        </object>
+      </object>
+      <object class="ReturnMessageGR" from="sdobjectgr4" id="" internalid="returnmessagegr11" to="sdobjectgr5" y="1055">
+        <object class="ReturnMessage" from="sdobject4" id="message" internalid="returnmessage11" name="" to="sdobject5"/>
+      </object>
+      <object class="SDObjectGR" id="" internalid="sdobjectgr7" uid="Desktop Application User" x="1167">
+        <object class="SDObject" designclass="designclass23" id="sdobject" internalid="sdobject7" name="response">
+          <object class="DesignClass" id="designclass" internalid="designclass23" name="RentVehicleResponse" stereotype="">
+            <object class="GenericClass" id="generic" internalid="genericclass7" name="RentVehicleResponse"/>
+            <object id="attributes"/>
+            <object id="methods"/>
+          </object>
+        </object>
+      </object>
+      <object class="CreateMessageGR" from="sdobjectgr3" id="" internalid="createmessagegr6" to="sdobjectgr7" y="513">
+        <object class="CreateMessage" from="sdobject3" id="message" internalid="createmessage6" to="sdobject7">
+          <object id="parameters"/>
+        </object>
+      </object>
+      <object class="ReturnMessageGR" from="sdobjectgr7" id="" internalid="returnmessagegr12" to="sdobjectgr3" y="542">
+        <object class="ReturnMessage" from="sdobject7" id="message" internalid="returnmessage12" name="" to="sdobject3"/>
+      </object>
+      <object class="CallMessageGR" from="sdobjectgr3" id="" internalid="callmessagegr6" to="sdobjectgr1" y="552">
+        <object class="CallMessage" from="sdobject3" id="message" internalid="callmessage6" iterative="false" name="getFirstAvailableVehicleWithCategoryId" returnType="void" returns="" to="sdobject1">
+          <object class="GenericOperation" id="operation" name="getFirstAvailableVehicleWithCategoryId"/>
+          <object id="parameters">
+            <object class="MethodParameter" id="" internalid="methodparameter24" name="request.categoryId" type=""/>
+          </object>
+        </object>
+      </object>
+      <object class="ReturnMessageGR" from="sdobjectgr1" id="" internalid="returnmessagegr13" to="sdobjectgr3" y="562">
+        <object class="ReturnMessage" from="sdobject1" id="message" internalid="returnmessage13" name="" to="sdobject3"/>
+      </object>
+      <object class="CallMessageGR" from="sdobjectgr3" id="" internalid="callmessagegr7" to="sdobjectgr7" y="577">
+        <object class="CallMessage" from="sdobject3" id="message" internalid="callmessage7" iterative="false" name="set" returnType="void" returns="" to="sdobject7">
+          <object class="GenericOperation" id="operation" name="set"/>
+          <object id="parameters">
+            <object class="MethodParameter" id="" internalid="methodparameter26" name="rentalId" type=""/>
+            <object class="MethodParameter" id="" internalid="methodparameter27" name="rented" type=""/>
+          </object>
+        </object>
+      </object>
+      <object class="ReturnMessageGR" from="sdobjectgr7" id="" internalid="returnmessagegr14" to="sdobjectgr3" y="590">
+        <object class="ReturnMessage" from="sdobject7" id="message" internalid="returnmessage14" name="" to="sdobject3"/>
+      </object>
+      <object class="CallMessageGR" from="sdobjectgr3" id="" internalid="callmessagegr8" to="sdobjectgr2" y="885">
+        <object class="CallMessage" from="sdobject3" id="message" internalid="callmessage8" iterative="false" name="present" returnType="void" returns="" to="sdobject2">
+          <object class="GenericOperation" id="operation" name="present"/>
+          <object id="parameters">
+            <object class="MethodParameter" id="" internalid="methodparameter30" name="response" type=""/>
+          </object>
+        </object>
+      </object>
+      <object class="ReturnMessageGR" from="sdobjectgr2" id="" internalid="returnmessagegr15" to="sdobjectgr3" y="972">
+        <object class="ReturnMessage" from="sdobject2" id="message" internalid="returnmessage15" name="" to="sdobject3"/>
+      </object>
+      <object class="SDObjectGR" id="" internalid="sdobjectgr8" uid="Desktop Application User" x="1322">
+        <object class="SDObject" designclass="designclass26" id="sdobject" internalid="sdobject8" name="viewModel">
+          <object class="DesignClass" id="designclass" internalid="designclass26" name="RentVehicleViewModel" stereotype="">
+            <object class="GenericClass" id="generic" internalid="genericclass8" name="RentVehicleViewModel"/>
+            <object id="attributes"/>
+            <object id="methods"/>
+          </object>
+        </object>
+      </object>
+      <object class="CreateMessageGR" from="sdobjectgr2" id="" internalid="createmessagegr7" to="sdobjectgr8" y="896">
+        <object class="CreateMessage" from="sdobject2" id="message" internalid="createmessage7" to="sdobject8">
+          <object id="parameters"/>
+        </object>
+      </object>
+      <object class="ReturnMessageGR" from="sdobjectgr8" id="" internalid="returnmessagegr16" to="sdobjectgr2" y="922">
+        <object class="ReturnMessage" from="sdobject8" id="message" internalid="returnmessage16" name="" to="sdobject2"/>
+      </object>
+      <object class="CallMessageGR" from="sdobjectgr2" id="" internalid="callmessagegr9" to="sdobjectgr8" y="944">
+        <object class="CallMessage" from="sdobject2" id="message" internalid="callmessage9" iterative="false" name="set" returnType="void" returns="" to="sdobject8">
+          <object class="GenericOperation" id="operation" name="set"/>
+          <object id="parameters">
+            <object class="MethodParameter" id="" internalid="methodparameter32" name="rentalId" type=""/>
+            <object class="MethodParameter" id="" internalid="methodparameter33" name="rented" type=""/>
+            <object class="MethodParameter" id="" internalid="methodparameter34" name="customerFound" type=""/>
+          </object>
+        </object>
+      </object>
+      <object class="ReturnMessageGR" from="sdobjectgr8" id="" internalid="returnmessagegr17" to="sdobjectgr2" y="960">
+        <object class="ReturnMessage" from="sdobject8" id="message" internalid="returnmessage17" name="" to="sdobject2"/>
+      </object>
+      <object class="CallMessageGR" from="sdobjectgr4" id="" internalid="callmessagegr10" to="sdobjectgr8" y="1020">
+        <object class="CallMessage" from="sdobject4" id="message" internalid="callmessage10" iterative="false" name="" returnType="" returns="" to="sdobject8">
+          <object class="GenericOperation" id="operation" name=""/>
+          <object id="parameters"/>
+        </object>
+      </object>
+      <object class="ReturnMessageGR" from="sdobjectgr8" id="" internalid="returnmessagegr18" to="sdobjectgr4" y="1043">
+        <object class="ReturnMessage" from="sdobject8" id="message" internalid="returnmessage18" name="" to="sdobject4"/>
+      </object>
+    </object>
+  </object>
+</uml>
